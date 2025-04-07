@@ -1,2 +1,2 @@
 this is an app in production. 
-app about pet cate and finding one home
+app about pet care and finding one home
