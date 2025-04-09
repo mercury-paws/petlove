@@ -1,12 +1,17 @@
 import css from './Menu.module.css';
 import { buttonAuthNames } from '../../../constants/constants';
-import Button from '../../Buttons/Button';
+import { NavLink } from 'react-router-dom';
 
 export default function Auth() {
     return (
         <div>
-            {buttonAuthNames.map((name) => (
-                <Button key={name} name={name} />
+            {buttonAuthNames.map(([name, to]) => (
+                <div key={to}>
+                    <NavLink to={to}>
+                        {name}
+                    </NavLink>
+                </div>
+                
             ))}
         </div>
     )

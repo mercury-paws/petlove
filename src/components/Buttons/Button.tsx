@@ -1,16 +1,15 @@
 import css from './Button.module.css';
 
 type Props = {
-    name: string;
+    name: React.ReactNode;
     type?: 'button' | 'submit' | 'reset';
     style?: React.CSSProperties;
-
 }
 
-export default function Button({ name }: Props) {
+export default function Button({ name, ...rest }: Props) {
     return (
         <div>
-            <button>{ name }</button>
+            <button {...rest}>{ name }</button>
         </div>
     )
 }

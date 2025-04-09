@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import Button from '../Buttons/Button';
-import css from './RegisterForms.css'
+import css from './LogInForm.css'
 
 export type FieldValues = {
   name: string;
@@ -24,43 +24,32 @@ export interface FormProps {
 }
 
 
-export default function RegisterForm({ onSubmit }: FormProps) {
+export default function LogInForm({ onSubmit }: FormProps) {
     const [showPassword, setShowPassword] = useState(false);
-    const [showRepeatPassword, setShowRepeatPassword] = useState(false);
 
     const toggleShowPassword = () => {
         setShowPassword(!showPassword)
     };
 
-    const toggleShowRepeatPassword = () => {
-        setShowRepeatPassword(!showRepeatPassword)
-    }
-
     const handleSubmit = () => {
-        console.log("registering")
+        console.log("logging in")
     }
 
     return (
         <div>
-    <PageName name={pageNames[3]} />
+    <PageName name={pageNames[5]} />
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                 {() => (
                     <Form>
-        <p>Thank you for your interest in our platform.</p>
+        <p>Welcome! Please enter your credentials to login to the platform:</p>
         <div>
           <div>
+
             <InputField
                 required
-                    placeholder="Name"
-                    type="text"
-                name="name"
-                id="nameFieldId"
-            />
-            <InputField
-                required
-                placeholder="Email"
-                    name="email"
+                    placeholder="Email"
                     type="email"
+                name="email"
                 id="emailFieldId"
             />
                 </div>
@@ -70,7 +59,8 @@ export default function RegisterForm({ onSubmit }: FormProps) {
                 placeholder="Password"
                 name="password"
                 id="passwordFieldId" />
-                <div onClick={toggleShowPassword}>
+                
+            <div onClick={toggleShowPassword}>
                 {showPassword ? (
                 <FaEye />
               ) : (
@@ -78,29 +68,14 @@ export default function RegisterForm({ onSubmit }: FormProps) {
               )}
             </div></div>
             
-            <div><InputField
-                  required
-                  type="text"
-                placeholder="Confirm password"
-                name="repeatPassword"
-                id="repeatPasswordFieldId"
-            />
-            <div onClick={toggleShowRepeatPassword}>
-                {showRepeatPassword ? (
-                <FaEye />
-                ) : (
-                <FaEyeSlash />
-              )}
-            </div> </div>
-               
             
           </div>
-                    <Button type="submit" name="Registration" />
+                    <Button type="submit" name="Log In" />
                 </Form>
                 )}
                 
-        </Formik>
-        <p>Already have an account? Login</p>
+            </Formik>
+            <p>Don't have an account? Register</p>
         </div>
             );
             

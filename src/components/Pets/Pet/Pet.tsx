@@ -2,6 +2,7 @@ import Button from '../../Buttons/Button';
 import css from './Pet.module.css'
 import { CiStar } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
+import { GoTrash } from "react-icons/go";
 
 type Props = {
     title: string;
@@ -14,17 +15,26 @@ type Props = {
     about: string;
     price: string;
     contact?: boolean;
+    myPet?: boolean;
     style?: React.CSSProperties;
 }
 
-export default function Pet({title, starNumber,name, birthday, sex, species, about, price,category, contact = false}: Props) {
+export default function Pet({title, starNumber,name, myPet = false, birthday, sex, species, about, price,category, contact = false}: Props) {
     return (
         <div>
             <img />
             <div>
                 <p>{title}</p>
-                <CiStar />
-                <p>{starNumber}</p>
+                {myPet ? (<Button name={<GoTrash /> } />
+                
+                ): (
+                        <div>
+                            <CiStar />
+                            <p>{starNumber}</p>
+                        </div>
+                )
+            }
+                
             </div>
             <div>
                 <div>
@@ -52,10 +62,11 @@ export default function Pet({title, starNumber,name, birthday, sex, species, abo
                 }
                 
             </div>
-            <p>{ about}</p>
-            <p>{ price}</p>
+            { myPet ? null : (<div><p>{ about}</p>
+            <p>{ price}</p></div>)}
             
-            {contact ? (
+            
+            {!myPet &&(contact ? (
                 <div>
                     <Button name={"Learn More"} />
                     <CiHeart />
@@ -65,7 +76,7 @@ export default function Pet({title, starNumber,name, birthday, sex, species, abo
                     <Button name={"Add To"} />
                     <Button name={"Contact"} />
                 </div>
-            )}     
+            )) }     
         </div>
     )
 }
