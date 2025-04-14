@@ -7,7 +7,7 @@ export default function Auth() {
         <div>
             {buttonAuthNames.map(([name, to]) => (
                 <div key={to}>
-                    <NavLink to={to}>
+                    <NavLink to={to} className={"custom-link"}>
                         {name}
                     </NavLink>
                 </div>

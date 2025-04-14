@@ -2,10 +2,11 @@ import css from './PageName.module.css'
 
 type Props = {
     name: string;
+    style?: React.CSSProperties;
 }
 
-export default function PageName({ name }) {
+export default function PageName({ name }: Props) {
     return (
-        <div>{ name }</div>
+        <div className={"custom-page-name"}>{ name }</div>
     )
 }
