@@ -4,10 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 export default function Menu() {
     return (
-        <div>
+        <div className="flex flex-row gap-[10px]">
             {buttonMenuNames.map(([name, to]) => (
-                <div key={to}>
-                    <NavLink to={to} className={"custom-link"}>
+                <div key={to} >
+                    <NavLink to={to}  className="custom-link">
                         {name}
                     </NavLink>
                 </div>

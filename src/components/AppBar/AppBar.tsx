@@ -6,7 +6,7 @@ import Auth from './Auth/Auth';
 
 export default function AppBar() {
     return (
-        <div>
+        <div className="flex flex-wrap items-center justify-between flex-row gap-[10px]">
             <Logo />
             <Menu />
             <Auth />
