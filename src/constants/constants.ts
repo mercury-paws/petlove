@@ -1,6 +1,9 @@
 export const buttonMenuNames: string[][] = [["News", "/news"], ["Find Pet", "/findpet"], ["Our Friends", "/ourfriends"]];
 
-export const buttonAuthNames: string[][] = [["Log In", "/login"], ["Registration", "/registration"]];
+export const buttonAuthNames: [string, string, string][] = [
+  ["Log In", "/login", "text-[var(--white)] bg-(--orange) w-[119px]"],
+  ["Registration", "/registration", "text-[var(--orange)] bg-(--beige)"]
+];
 
 export const pageNames: string[] = ['News', "Our Friends", 'Find your favourite pet', 'Registration', 'Add my pet', 'Log In', 'Take good care of your small pets', 'Edit information', 'My information', 'My pets'];
 
